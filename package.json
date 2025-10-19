@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "pnpm --prefix client start",
+    "dev": "concurrently \"pnpm run server\" \"pnpm client\""
   },
   "keywords": [],
   "author": "",
