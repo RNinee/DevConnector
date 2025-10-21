@@ -1,11 +1,12 @@
 import { set } from 'mongoose';
 import React, { Fragment, useState } from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
-import PropTypes from 'prop-types'
+import { useDispatch } from 'react-redux';
 
-const Register = (props) => {
+const Register = () => {
+  const dispatch = useDispatch();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -21,7 +22,7 @@ const Register = (props) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     if (password !== password2) {
-      props.setAlert('Passwords do not match', 'danger');
+      dispatch(setAlert('Passwords do not match', 'danger'));
     } else {
       console.log('Success');
     }
@@ -89,8 +90,4 @@ const Register = (props) => {
   );
 };
 
-Register.propTypes = {
-  setAlert: PropTypes.func.isRequired
-};
-
-export default connect(null, { setAlert })(Register);
+export default Register;
