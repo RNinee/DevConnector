@@ -2,6 +2,7 @@ import { set } from 'mongoose';
 import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
+import { register } from '../../actions/auth';
 import { useDispatch } from 'react-redux';
 
 const Register = () => {
@@ -24,7 +25,7 @@ const Register = () => {
     if (password !== password2) {
       dispatch(setAlert('Passwords do not match', 'danger'));
     } else {
-      console.log('Success');
+      dispatch(register({ name, email, password }));
     }
   };
 
