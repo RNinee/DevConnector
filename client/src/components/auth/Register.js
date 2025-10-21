@@ -1,12 +1,13 @@
 import { set } from 'mongoose';
 import React, { Fragment, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Register = () => {
   const dispatch = useDispatch();
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -28,6 +29,10 @@ const Register = () => {
       dispatch(register({ name, email, password }));
     }
   };
+
+  if (isAuthenticated) {
+    return <Navigate to='/dashboard' />;
+  }
 
   return (
     <Fragment>
