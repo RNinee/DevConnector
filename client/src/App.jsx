@@ -7,7 +7,7 @@ import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 import Register from './components/auth/Register';
 import Dashboard from './components/dashboard/Dashboard';
-import CreateProfile from './components/profile-forms/CreateProfile.js';
+import CreateProfile from './components/profile-forms/CreateProfile.jsx';
 import PrivateRoute from './components/routing/PrivateRoute';
 import { Provider } from 'react-redux';
 import { loadUser } from './actions/auth';
