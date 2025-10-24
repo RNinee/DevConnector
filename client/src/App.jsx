@@ -32,7 +32,7 @@ const App = () => {
         <Fragment>
           <Navbar />
           <Routes>
-            <Route path='/' Component={Landing} />
+            <Route path='/' element={<Landing />} />
             <Route path='*' element={null} />
           </Routes>
           <section className='container'>
