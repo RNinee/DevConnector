@@ -32,32 +32,6 @@ A full-stack MERN application for developers to create profiles, share posts, an
 - MongoDB
 - pnpm (or npm)
 
-### Installation
-
-1. Clone the repository
-```bash
-git clone <your-repo-url>
-cd mern
-```
-
-2. Install dependencies
-```bash
-# Install server dependencies
-pnpm install
-
-# Install client dependencies
-cd client
-pnpm install
-```
-
-3. Set up environment variables
-Create a `default.json` file in the `config` folder with your MongoDB URI and JWT secret.
-
-4. Run the application
-```bash
-# Run both client and server
-pnpm run dev
-
 # Run server only
 pnpm run server
 
