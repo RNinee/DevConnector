@@ -9,6 +9,8 @@ import Register from './components/auth/Register';
 import Dashboard from './components/dashboard/Dashboard';
 import CreateProfile from './components/profile-forms/CreateProfile.jsx';
 import EditProfile from './components/profile-forms/EditProfile.jsx';
+import { AddExperience } from './components/profile-forms/AddExperience.jsx';
+import { AddEducation } from './components/profile-forms/AddEducaiton.jsx';
 import PrivateRoute from './components/routing/PrivateRoute';
 import { Provider } from 'react-redux';
 import { loadUser } from './actions/auth';
@@ -59,6 +61,22 @@ const App = () => {
                 element={
                   <PrivateRoute>
                     <EditProfile />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path='/add-experience'
+                element={
+                  <PrivateRoute>
+                    <AddExperience />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path='/add-education'
+                element={
+                  <PrivateRoute>
+                    <AddEducation />
                   </PrivateRoute>
                 }
               />
