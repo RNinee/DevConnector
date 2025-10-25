@@ -310,7 +310,7 @@ router.get('/github/:username', async (req, res) => {
       method: 'GET',
       headers: {
         'user-agent': 'node.js',
-        'Authorization': `token ${config.get('githubToken')}`
+        'Authorization': `token ${process.env.githubToken || config.get('githubToken')}`
       }
     };
 
