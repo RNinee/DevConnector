@@ -1,15 +1,17 @@
 import React, { Fragment } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { logout } from '../../actions/auth';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { isAuthenticated, loading } = useSelector((state) => state.auth);
 
   const authLinks = (
     <ul>
+      <li>
+        <Link to='/profiles'>Developers</Link>
+      </li>
       <li>
         <Link to='/dashboard'>
           <i className='fas fa-user'></i>
@@ -28,7 +30,7 @@ const Navbar = () => {
   const guestLinks = (
     <ul>
       <li>
-        <a href='#!'>Developers</a>
+        <Link to='/profiles'>Developers</Link>
       </li>
       <li>
         <Link to='/register'>Register</Link>

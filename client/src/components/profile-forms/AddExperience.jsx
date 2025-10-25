@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Link, withRouter, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { addExperience } from '../../actions/profile';
 import { useDispatch } from 'react-redux';
 
@@ -94,6 +94,7 @@ export const AddExperience = () => {
           <input
             type='date'
             name='to'
+            value={to}
             onChange={(e) => onChange(e)}
             disabled={toDateDisabled ? 'disabled' : ''}
           />
