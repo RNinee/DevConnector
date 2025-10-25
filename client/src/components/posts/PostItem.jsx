@@ -1,11 +1,13 @@
 import React, { Fragment } from 'react';
 import Moment from 'react-moment';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { addLike, removeLike } from '../../actions/post';
 
 const PostItem = ({
   post: { _id, text, name, avatar, user, likes, comments, date },
 }) => {
+  const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
   return (
     <div class='post bg-white p-1 my-1'>
@@ -20,15 +22,26 @@ const PostItem = ({
         <p class='post-date'>
           Posted on <Moment format='DD/MM/YYYY'>{date}</Moment>
         </p>
-        <button type='button' class='btn btn-light'>
+        <button
+          onClick={(e) => dispatch(addLike(_id))}
+          type='button'
+          class='btn btn-light'
+        >
           <i class='fas fa-thumbs-up'></i>{' '}
           <span>{likes.length > 0 && <span>{likes.length}</span>}</span>
         </button>
-        <button type='button' class='btn btn-light'>
+        <button
+          onClick={(e) => dispatch(removeLike(_id))}
+          type='button'
+          class='btn btn-light'
+        >
           <i class='fas fa-thumbs-down'></i>
         </button>
         <Link to={`/post/${_id}`} class='btn btn-primary'>
-          Discussion {comments.length > 0 && <span class='comment-count'>{comments.length}</span>}
+          Discussion{' '}
+          {comments.length > 0 && (
+            <span class='comment-count'>{comments.length}</span>
+          )}
         </Link>
         {!auth.loading && user === auth.user._id && (
           <button type='button' class='btn btn-danger'>
