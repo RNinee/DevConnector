@@ -10,7 +10,7 @@ const Posts = () => {
   const { posts, loading } = useSelector((state) => state.post);
   useEffect(() => {
     dispatch(getPosts());
-  }, []);
+  }, [dispatch]);
 
   return loading ? (
     <Spinner />
@@ -23,7 +23,7 @@ const Posts = () => {
       <PostForm />
       <div className='posts'>
         {posts.map((post) => (
-          <PostItem key={post._id} post={post} />
+          <PostItem key={post._id} post={post} showActions={true} />
         ))}
       </div>
     </Fragment>
