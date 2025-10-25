@@ -1,3 +1,4 @@
 node_modules/
 config/default.json
 theme-files
+config/production.json

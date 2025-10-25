@@ -7,7 +7,8 @@
     "start": "node server",
     "server": "nodemon server.js",
     "client": "pnpm --prefix client start",
-    "dev": "concurrently \"pnpm run server\" \"pnpm client\""
+    "dev": "concurrently \"pnpm run server\" \"pnpm client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
   "author": "",
