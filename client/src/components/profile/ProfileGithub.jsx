@@ -5,11 +5,11 @@ import Spinner from '../layout/Spinner';
 
 const ProfileGithub = ({ username }) => {
   const dispatch = useDispatch();
-  const { repos, loading } = useSelector((state) => state.profile);
+  const { repos } = useSelector((state) => state.profile);
 
   useEffect(() => {
     dispatch(getGithubRepos(username));
-  }, [username]);
+  }, [username, dispatch]);
 
   return (
     <div className='profile-github'>
