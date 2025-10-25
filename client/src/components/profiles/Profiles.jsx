@@ -36,3 +36,5 @@ export const Profiles = () => {
     </Fragment>
   );
 };
+
+export default Profiles;

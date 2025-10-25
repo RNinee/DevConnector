@@ -11,7 +11,8 @@ import CreateProfile from './components/profile-forms/CreateProfile.jsx';
 import EditProfile from './components/profile-forms/EditProfile.jsx';
 import { AddExperience } from './components/profile-forms/AddExperience.jsx';
 import { AddEducation } from './components/profile-forms/AddEducaiton.jsx';
-import { Profiles } from './components/profiles/Profiles.jsx';
+import Profiles from './components/profiles/Profiles.jsx';
+import Profile from './components/profile/Profile.js';
 import PrivateRoute from './components/routing/PrivateRoute';
 import { Provider } from 'react-redux';
 import { loadUser } from './actions/auth';
@@ -42,6 +43,7 @@ const App = () => {
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register />} />
               <Route path='/profiles' element={<Profiles />} />
+              <Route path='/profile/:id' element={<Profile />} /> 
               <Route
                 path='/dashboard'
                 element={
